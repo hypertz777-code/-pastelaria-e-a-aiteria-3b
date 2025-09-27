@@ -1,0 +1,159 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.75rem;
+  /* Cores inspiradas em pastelaria e açaí */
+  --background: #fef7ed; /* Creme suave */
+  --foreground: #431407; /* Marrom escuro */
+  --card: #ffffff;
+  --card-foreground: #431407;
+  --popover: #ffffff;
+  --popover-foreground: #431407;
+  --primary: #dc2626; /* Vermelho vibrante (tomate/pimentão) */
+  --primary-foreground: #ffffff;
+  --secondary: #f97316; /* Laranja (queijo derretido) */
+  --secondary-foreground: #ffffff;
+  --muted: #fed7aa; /* Laranja claro */
+  --muted-foreground: #9a3412;
+  --accent: #7c2d12; /* Marrom médio (pastel dourado) */
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
+  --border: #fed7aa;
+  --input: #ffffff;
+  --ring: #dc2626;
+  --chart-1: #dc2626;
+  --chart-2: #f97316;
+  --chart-3: #eab308;
+  --chart-4: #22c55e;
+  --chart-5: #3b82f6;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #431407;
+  --sidebar-primary: #dc2626;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #fed7aa;
+  --sidebar-accent-foreground: #9a3412;
+  --sidebar-border: #fed7aa;
+  --sidebar-ring: #dc2626;
+}
+
+.dark {
+  --background: #1c1917; /* Marrom muito escuro */
+  --foreground: #fef7ed;
+  --card: #292524; /* Marrom escuro */
+  --card-foreground: #fef7ed;
+  --popover: #292524;
+  --popover-foreground: #fef7ed;
+  --primary: #f97316; /* Laranja vibrante */
+  --primary-foreground: #1c1917;
+  --secondary: #dc2626; /* Vermelho */
+  --secondary-foreground: #fef7ed;
+  --muted: #44403c;
+  --muted-foreground: #d6d3d1;
+  --accent: #f97316;
+  --accent-foreground: #1c1917;
+  --destructive: #ef4444;
+  --border: #44403c;
+  --input: #292524;
+  --ring: #f97316;
+  --chart-1: #f97316;
+  --chart-2: #dc2626;
+  --chart-3: #eab308;
+  --chart-4: #22c55e;
+  --chart-5: #3b82f6;
+  --sidebar: #292524;
+  --sidebar-foreground: #fef7ed;
+  --sidebar-primary: #f97316;
+  --sidebar-primary-foreground: #1c1917;
+  --sidebar-accent: #44403c;
+  --sidebar-accent-foreground: #d6d3d1;
+  --sidebar-border: #44403c;
+  --sidebar-ring: #f97316;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background-image: 
+      radial-gradient(circle at 25% 25%, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(220, 38, 38, 0.1) 0%, transparent 50%);
+    min-height: 100vh;
+  }
+}
+
+/* Animações personalizadas */
+@keyframes pulse-warm {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-warm {
+  animation: pulse-warm 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Gradientes personalizados */
+.bg-gradient-pastel {
+  background: linear-gradient(135deg, #fed7aa 0%, #fdba74 50%, #fb923c 100%);
+}
+
+.bg-gradient-acai {
+  background: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #c084fc 100%);
+}
+
+/* Sombras personalizadas */
+.shadow-warm {
+  box-shadow: 0 10px 25px -3px rgba(249, 115, 22, 0.1), 0 4px 6px -2px rgba(249, 115, 22, 0.05);
+}
+
+.shadow-warm-lg {
+  box-shadow: 0 25px 50px -12px rgba(249, 115, 22, 0.25), 0 10px 20px -5px rgba(249, 115, 22, 0.1);
+}
